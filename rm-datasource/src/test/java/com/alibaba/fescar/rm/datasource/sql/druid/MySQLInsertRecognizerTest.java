@@ -16,19 +16,24 @@
 
 package com.alibaba.fescar.rm.datasource.sql.druid;
 
-import com.alibaba.druid.sql.ast.SQLStatement;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.Arrays;
 import java.util.Collections;
 
+import com.alibaba.druid.sql.ast.SQLStatement;
+
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
- * @author hanwen
- * created at 2019-01-25
+ * The type My sql insert recognizer test.
+ *
+ * @author hanwen  created at 2019-01-25
  */
 public class MySQLInsertRecognizerTest extends AbstractMySQLRecognizerTest {
 
+    /**
+     * Insert recognizer test 0.
+     */
     @Test
     public void insertRecognizerTest_0() {
 
@@ -45,6 +50,9 @@ public class MySQLInsertRecognizerTest extends AbstractMySQLRecognizerTest {
         Assert.assertEquals(Collections.singletonList("name1"), mySQLInsertRecognizer.getInsertRows().get(0));
     }
 
+    /**
+     * Insert recognizer test 1.
+     */
     @Test
     public void insertRecognizerTest_1() {
 
@@ -61,6 +69,9 @@ public class MySQLInsertRecognizerTest extends AbstractMySQLRecognizerTest {
         Assert.assertEquals(Arrays.asList("name1", "name2"), mySQLInsertRecognizer.getInsertRows().get(0));
     }
 
+    /**
+     * Insert recognizer test 3.
+     */
     @Test
     public void insertRecognizerTest_3() {
 

@@ -16,20 +16,25 @@
 
 package com.alibaba.fescar.rm.datasource.sql.druid;
 
-import com.alibaba.druid.sql.ast.SQLStatement;
-import com.alibaba.fescar.rm.datasource.ParametersHolder;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.alibaba.druid.sql.ast.SQLStatement;
+import com.alibaba.fescar.rm.datasource.ParametersHolder;
+
+import org.junit.Assert;
+import org.junit.Test;
+
 /**
- * @author hanwen
- * created at 2019-01-25
+ * The type My sql delete recognizer test.
+ *
+ * @author hanwen  created at 2019-01-25
  */
 public class MySQLDeleteRecognizerTest extends AbstractMySQLRecognizerTest {
 
+    /**
+     * Delete recognizer test 0.
+     */
     @Test
     public void deleteRecognizerTest_0() {
 
@@ -44,6 +49,9 @@ public class MySQLDeleteRecognizerTest extends AbstractMySQLRecognizerTest {
         Assert.assertEquals("id = 'id1'", mySQLDeleteRecognizer.getWhereCondition());
     }
 
+    /**
+     * Delete recognizer test 1.
+     */
     @Test
     public void deleteRecognizerTest_1() {
 
@@ -65,7 +73,7 @@ public class MySQLDeleteRecognizerTest extends AbstractMySQLRecognizerTest {
                 idParam.add("id1");
                 ArrayList<Object> nameParam = new ArrayList<>();
                 nameParam.add("name1");
-                return new ArrayList[]{idParam, nameParam};
+                return new ArrayList[] {idParam, nameParam};
             }
         }, paramAppender);
 

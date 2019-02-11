@@ -16,16 +16,23 @@
 
 package com.alibaba.fescar.rm.datasource.sql.druid;
 
-import com.alibaba.druid.sql.ast.SQLStatement;
-import com.alibaba.fescar.rm.datasource.ParametersHolder;
-import org.junit.Assert;
-import org.junit.Test;
-
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.alibaba.druid.sql.ast.SQLStatement;
+import com.alibaba.fescar.rm.datasource.ParametersHolder;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+/**
+ * The type My sql update recognizer test.
+ */
 public class MySQLUpdateRecognizerTest extends AbstractMySQLRecognizerTest {
 
+    /**
+     * Update recognizer test 0.
+     */
     @Test
     public void updateRecognizerTest_0() {
 
@@ -43,6 +50,9 @@ public class MySQLUpdateRecognizerTest extends AbstractMySQLRecognizerTest {
         Assert.assertEquals("id = 'id1'", mySQLUpdateRecognizer.getWhereCondition());
     }
 
+    /**
+     * Update recognizer test 1.
+     */
     @Test
     public void updateRecognizerTest_1() {
 
@@ -62,6 +72,9 @@ public class MySQLUpdateRecognizerTest extends AbstractMySQLRecognizerTest {
         Assert.assertEquals("id = 'id1'", mySQLUpdateRecognizer.getWhereCondition());
     }
 
+    /**
+     * Update recognizer test 2.
+     */
     @Test
     public void updateRecognizerTest_2() {
 
@@ -85,7 +98,7 @@ public class MySQLUpdateRecognizerTest extends AbstractMySQLRecognizerTest {
             public ArrayList<Object>[] getParameters() {
                 ArrayList<Object> idParam = new ArrayList<>();
                 idParam.add("id1");
-                return new ArrayList[]{idParam};
+                return new ArrayList[] {idParam};
             }
         }, paramAppender);
 
