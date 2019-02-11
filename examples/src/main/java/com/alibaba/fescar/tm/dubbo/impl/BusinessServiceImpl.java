@@ -32,7 +32,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  *     -Djava.net.preferIPv4Stack=true
  * </pre>
  */
-public class BusinessServiceImpl implements BusinessService {
+    public class BusinessServiceImpl implements BusinessService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BusinessService.class);
 

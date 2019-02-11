@@ -31,3 +31,6 @@ distribution/*
 Thumbs.db
 *.orig
 *.class
+
+examples/**/*/jdbc.properties
+examples/**/*/*.xml
