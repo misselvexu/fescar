@@ -38,8 +38,6 @@ import com.alibaba.fescar.core.rpc.ClientMessageListener;
 import com.alibaba.fescar.core.rpc.ClientMessageSender;
 import com.alibaba.fescar.core.rpc.RemotingService;
 import com.alibaba.fescar.core.rpc.netty.NettyPoolKey.TransactionRole;
-import com.alibaba.fescar.core.service.ServiceManager;
-import com.alibaba.fescar.core.service.ServiceManagerStaticConfigImpl;
 import com.alibaba.fescar.discovery.registry.RegistryFactory;
 import com.alibaba.nacos.client.naming.utils.CollectionUtils;
 
@@ -71,11 +69,8 @@ import org.slf4j.LoggerFactory;
 /**
  * The type Rpc remoting client.
  *
- * @Author: jimin.jm @alibaba-inc.com
- * @Project: fescar -all
- * @DateTime: 2018 /9/12 11:30
- * @FileName: AbstractRpcRemotingClient
- * @Description:
+ * @author jimin.jm @alibaba-inc.com
+ * @date 2018 /9/12
  */
 public abstract class AbstractRpcRemotingClient extends AbstractRpcRemoting
     implements RemotingService, RegisterMsgListener, ClientMessageSender {
@@ -93,10 +88,6 @@ public abstract class AbstractRpcRemotingClient extends AbstractRpcRemoting
     private static final int MAX_MERGE_SEND_MILLS = 1;
     private static final String THREAD_PREFIX_SPLIT_CHAR = "_";
 
-    /**
-     * The Service manager.
-     */
-    protected ServiceManager serviceManager;
 
     /**
      * The Netty client key pool.
@@ -145,7 +136,6 @@ public abstract class AbstractRpcRemotingClient extends AbstractRpcRemoting
         NettyPoolableFactory keyPoolableFactory = new NettyPoolableFactory(this);
         nettyClientKeyPool = new GenericKeyedObjectPool(keyPoolableFactory);
         nettyClientKeyPool.setConfig(getNettyPoolConfig());
-        serviceManager = new ServiceManagerStaticConfigImpl();
         super.init();
     }
 
@@ -324,6 +314,13 @@ public abstract class AbstractRpcRemotingClient extends AbstractRpcRemoting
         }
     }
 
+    /**
+     * Gets avail server list.
+     *
+     * @param transactionServiceGroup the transaction service group
+     * @return the avail server list
+     * @throws Exception the exception
+     */
     protected List<String> getAvailServerList(String transactionServiceGroup) throws Exception {
         List<String> availList = new ArrayList<>();
         List<InetSocketAddress> availInetSocketAddressList = RegistryFactory.getInstance().lookup(
