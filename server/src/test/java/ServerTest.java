@@ -18,22 +18,26 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import com.alibaba.fescar.core.rpc.netty.RpcServer;
-import com.alibaba.fescar.server.UUIDGenerator;
-import com.alibaba.fescar.server.coordinator.DefaultCoordinator;
+import io.seata.core.rpc.netty.RpcServer;
+import io.seata.server.UUIDGenerator;
+import io.seata.server.coordinator.DefaultCoordinator;
 
 /**
- * @Author: jimin.jm@alibaba-inc.com
- * @Project: fescar-all
- * @DateTime: 2018/12/4 19:34
- * @FileName: ServerTest
- * @Description:
+ * The type Server test.
+ *
+ * @author jimin.jm @alibaba-inc.com
+ * @date 2018 /12/4
  */
 public class ServerTest {
 
     private static final ThreadPoolExecutor workingThreads = new ThreadPoolExecutor(100, 500, 500, TimeUnit.SECONDS,
             new LinkedBlockingQueue(20000), new ThreadPoolExecutor.CallerRunsPolicy());
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         RpcServer rpcServer = new RpcServer(workingThreads);

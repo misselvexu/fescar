@@ -6,6 +6,7 @@ target/
 *.tar
 *.tar.gz
 *.class
+.flattened-pom.xml
 
 # eclipse ignore
 .settings/
@@ -24,7 +25,12 @@ target/
 *.diff
 *.patch
 *.tmp
-distribution/*
+/distribution/bin
+/distribution/conf
+/distribution/lib
+server/*root.*
+server/.root.*
+*.data
 
 # system ignore
 .DS_Store
