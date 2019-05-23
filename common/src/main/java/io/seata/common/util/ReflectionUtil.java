@@ -32,7 +32,7 @@ public class ReflectionUtil {
     /**
      * The constant MAX_NEST_DEPTH.
      */
-    public static int MAX_NEST_DEPTH = 20;
+    public static final int MAX_NEST_DEPTH = 20;
 
     /**
      * Gets class by name.
@@ -176,7 +176,7 @@ public class ReflectionUtil {
      */
     public static Set<Class<?>> getInterfaces(Class<?> clazz){
         if (clazz.isInterface() ) {
-            return Collections.<Class<?>>singleton(clazz);
+            return Collections.singleton(clazz);
         }
         Set<Class<?>> interfaces = new LinkedHashSet<Class<?>>();
         while (clazz != null) {
